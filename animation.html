@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <style>
+        body {
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            margin-top: 200px;
+        }
+    </style>
+</head>
+<body background="images.jpeg">
+    <canvas id="animationCanvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById('animationCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const images = [
+            { src: 'birdflying.gif', width: 200, height: 300 },
+            { src: 'birdflying.gif', width: 300, height: 400 }
+        ];
+
+        const marquee = {
+            x: canvas.width,
+            y: canvas.height / 3 - images[0].height / 2,
+            speed: 5
+        };
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            marquee.x += marquee.speed;
+
+            if (marquee.x > canvas.width) {
+                marquee.x = -images[0].width;
+            }
+
+            for (let i = 0; i < images.length; i++) {
+                const image = new Image();
+                image.src = images[i].src;
+                ctx.drawImage(image, marquee.x + (i * images[i].width), marquee.y, images[i].width, images[i].height);
+            }
+
+            requestAnimationFrame(draw);
+        }
+
+        draw();
+    </script>
+</body>
+</html>

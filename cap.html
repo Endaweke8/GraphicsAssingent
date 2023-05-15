@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cap Image</title>
+</head>
+<body>
+  <canvas id="canvas" width="200" height="200"></canvas>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    // Draw the cap body
+    ctx.beginPath();
+    ctx.moveTo(30, 20);
+    ctx.lineTo(170, 20);
+    ctx.quadraticCurveTo(180, 20, 180, 30);
+    ctx.lineTo(180, 150);
+    ctx.quadraticCurveTo(180, 160, 170, 160);
+    ctx.lineTo(30, 160);
+    ctx.quadraticCurveTo(20, 160, 20, 150);
+    ctx.lineTo(20, 30);
+    ctx.quadraticCurveTo(20, 20, 30, 20);
+    ctx.fillStyle = '#3F3F3F';
+    ctx.fill();
+
+    // Draw the brim
+    ctx.beginPath();
+    ctx.moveTo(40, 50);
+    ctx.lineTo(160, 50);
+    ctx.lineWidth = 10;
+    ctx.strokeStyle = 'black';
+    ctx.stroke();
+
+    // Draw the button on top
+    ctx.beginPath();
+    ctx.arc(100, 25, 15, 0, Math.PI * 2);
+    ctx.fillStyle = 'black';
+    ctx.fill();
+  </script>
+</body>
+</html>

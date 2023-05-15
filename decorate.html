@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ethiopian Habesha Kemis Decoration</title>
+    <style>
+      body {
+        background-color: #f2f2f2;
+      }
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="800" height="800"></canvas>
+
+    <script>
+      // Get the canvas element
+      const canvas = document.getElementById("myCanvas");
+      const ctx = canvas.getContext("2d");
+
+      // Function to draw a diamond
+      function drawDiamond(x, y, size, color) {
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.moveTo(x, y - size / 2);
+        ctx.lineTo(x + size / 3, y - size / 6);
+        ctx.lineTo(x + size / 2, y);
+        ctx.lineTo(x + size / 3, y + size / 6);
+        ctx.lineTo(x, y + size / 2);
+        ctx.lineTo(x - size / 3, y + size / 6);
+        ctx.lineTo(x - size / 2, y);
+        ctx.lineTo(x - size / 3, y - size / 6);
+        ctx.closePath();
+        ctx.fill();
+        ctx.strokeStyle = "#000";
+        ctx.lineWidth = size / 10;
+        ctx.stroke();
+      }
+
+      // Function to draw a cross
+      function drawCross(x, y, size, color) {
+        ctx.strokeStyle = color;
+        ctx.lineWidth = size / 8;
+        ctx.lineCap = "round";
+        ctx.beginPath();
+        ctx.moveTo(x - size / 2, y);
+        ctx.lineTo(x + size / 2, y);
+        ctx.moveTo(x, y - size / 2);
+        ctx.lineTo(x, y + size / 2);
+        ctx.closePath();
+        ctx.stroke();
+      }
+
+      // Clear the canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Set colors for diamonds and cross
+      const diamondColors = ["#ffbe00", "#bb3b0e", "#006b35"]; // Yellow, Red, Green
+      const crossColor = "red"; // White
+
+      // Draw diamonds and crosses to create a decorative pattern
+      const diamondSize = 80;
+      const crossSize = 100;
+      const spacingX = 180;
+      const spacingY = 120; // Decreased spacing
+
+      // Draw the pattern horizontally
+      for (let i = 0; i < 3; i++) {
+        const startX = spacingX * i;
+
+        for (let j = 0; j < 3; j++) {
+          const startY = spacingY * j;
+
+          const centerX = startX + spacingX / 2;
+          const centerY = startY + spacingY / 2;
+
+          // Get the color for the current row
+          const diamondColor = diamondColors[j];
+
+          // Draw the center diamond
+          drawDiamond(centerX, centerY, diamondSize, diamondColor);
+
+          // Draw the cross
+          drawCross(centerX, centerY, crossSize, crossColor);
+
+          // Draw diamonds at the ends of the cross arms
+          drawDiamond(centerX - crossSize / 2, centerY, diamondSize, diamondColor);
+          drawDiamond(centerX + crossSize / 2, centerY, diamondSize, diamondColor);
+          drawDiamond(centerX, centerY - crossSize / 2, diamondSize, diamondColor);
+          drawDiamond(centerX, centerY +
+          crossSize / 2, diamondSize, diamondColor);
+                // Draw additional crosses horizontally
+      drawCross(centerX - crossSize, centerY, crossSize, crossColor);
+      drawCross(centerX + crossSize, centerY, crossSize, crossColor);
+    }
+  }
+</script>

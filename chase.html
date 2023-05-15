@@ -1,0 +1,23 @@
+<canvas id = "view"></canvas>
+<script>
+var vw = document.getElementById("view");
+var ctx = vw.getContext("2d");
+var w = vw.width = window.innerWidth;
+var h = vw.height = window.innerHeight;
+ctx.fillStyle = "red";
+ctx.lineWidth = 3;
+ctx.strokeStyle = "blue";
+ctx.lineWidth = 3;
+ctx.fillRect(0,0,w,h);
+ctx.strokeRect(w/2-50,h/2-50,100,100);
+var isYellow = true;
+for(var j=0 ; j<h;j+=100){
+for(var i=0 ; i<w;i+=100){
+ ctx.fillStyle = isYellow? "yellow":"blue";
+ ctx.fillRect(i,j,100,100);
+ isYellow = !isYellow;
+}
+isYellow = !isYellow;
+}
+
+</script>

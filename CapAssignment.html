@@ -1,0 +1,77 @@
+<canvas id="view"></canvas>
+<script>
+    var vw=document.getElementById("view");
+    var ctx=vw.getContext("2d");
+    var w=vw.width=window.innerWidth;
+    var h=vw.height=window.innerHeight;
+    // ctx.fillStyle="red";
+    // ctx.strokeStyle="blue";
+    // ctx.fillRect(100,100,100,100);
+    // ctx.moveTo(300,100);
+    // ctx.lineTo(300,100);
+
+    // ctx.strokeStyle="blue";
+    // ctx.beginPath();
+    //  ctx.moveTo(300,100);
+    //  ctx.lineTo(400,100);
+    //  ctx.lineTo(350,50);
+    // ctx.closePath();
+    // ctx.stroke();
+    // ctx.strokeStyle="red";
+    // ctx.beginPath();
+    //  ctx.moveTo(310,107);
+    //  ctx.lineTo(310,157);
+    //  ctx.lineTo(390,157);
+    //  ctx.lineTo(390,107);
+     
+    // ctx.closePath();
+    // ctx.stroke();
+    
+    // ctx.strokeStyle="green";
+    // ctx.beginPath();
+    //  ctx.moveTo(340,157);
+    //  ctx.lineTo(340,127);
+    //  ctx.lineTo(370,127);
+    //  ctx.lineTo(370,157)
+    // ctx.closePath();
+    // ctx.stroke();
+
+    ctx.strokeStyle="black";
+    ctx.beginPath();
+    ctx.moveTo(200,200);
+    ctx.quadraticCurveTo(200,150,450,200);
+    ctx.lineTo(450,200);
+
+    ctx.moveTo(200,200);
+    ctx.quadraticCurveTo(250,250,450,200);
+    ctx.lineTo(450,200);
+
+    ctx.moveTo(200,200);
+    ctx.quadraticCurveTo(250,250,200,500);
+    ctx.lineTo(200,500);
+
+    ctx.moveTo(450,200);
+    ctx.quadraticCurveTo(400,250,450,500);
+    ctx.lineTo(450,500);
+
+    ctx.moveTo(200,500);
+    ctx.quadraticCurveTo(305,540,450,500);
+    ctx.lineTo(450,500);
+
+    ctx.moveTo(220,250);
+    ctx.quadraticCurveTo(20,350,210,450);
+    ctx.lineTo(210,450);
+    ctx.fillStyle="blue";
+    // ctx.moveTo(222,350);
+    // ctx.quadraticCurveTo(300,280,430,350);
+    // ctx.lineTo(430,350);
+
+    ctx.moveTo(222,350);
+    ctx.quadraticCurveTo(300,420,430,350);
+    //ctx.lineTo(430,350);
+    
+    ctx.closePath();
+    ctx.stroke();
+    
+    
+</script>

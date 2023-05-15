@@ -1,0 +1,35 @@
+<canvas id="view" width=900 height=400 style="border: 1px solid red" ></canvas>
+<script>
+var c = document.getElementById("view");
+var ctx = c.getContext("2d");
+ctx.strokeStyle= "red";
+ctx.beginPath();
+ctx.moveTo(100,100);
+ctx.lineTo(200,100);
+ctx.lineTo(150,50);
+ctx.lineTo(100,100);
+//ctx.closePath();
+ctx.stroke();
+
+ctx.strokeStyle= "blue";
+ctx.beginPath();
+ctx.moveTo(115,100);
+ctx.lineTo(115,175);
+ctx.lineTo(185,175);
+ctx.lineTo(185,100);
+//ctx.closePath();
+ctx.stroke();
+
+ctx.strokeRect(140,140,20,35);
+
+
+ctx.moveTo(250,100);
+ctx.quadraticCurveTo(300,60,350,100);
+ctx.quadraticCurveTo(300,140,250,100);
+ctx.moveTo(400,100);
+ctx.bezierCurveTo(450,0,500,200,550,100);
+ctx.moveTo(700,100);
+ctx.arc(650,100,50,0,1*Math.PI);
+ctx.stroke();
+
+</script>
